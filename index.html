@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Layout</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        header {
+            display: flex;
+            justify-content: space-between; /* Changed to space-between */
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+            width: 100%; 
+        }
+        .logo {
+            position: absolute; 
+            left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff0000; 
+        }
+        .icon-container {
+            display: flex; 
+            align-items: center; 
+            margin-left: 10px;
+            margin-right: 50px; 
+        }
+        .icon {
+            margin-left: 20px; 
+            cursor: pointer; 
+            width: 30px; 
+            height: 30px;
+        }
+        .search-container {
+            flex-grow: 1;
+            display: flex; 
+            justify-content: center; 
+        }
+        input[type="text"] {
+            width: 600px; 
+            padding: 5px;
+            border: 1px solid black; 
+            border-radius: 3px;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #ff0000;
+            color: white; 
+            border: none; 
+            border-radius: 3px; 
+        }
+        .container {
+            display: flex; 
+        }
+        
+        .sidebar {
+            width: 300px; /* Adjusted width */
+            background-color: white; 
+            padding: 10px;
+            height: auto; 
+            overflow-y: auto;
+        }
+        .sidebar ul {
+            list-style-type: none; 
+            padding: 0; 
+        }
+        .sidebar ul li {
+            margin-bottom: 10px; 
+            display: flex; 
+            align-items: center; 
+            height: 8vh; 
+            overflow-y: auto;
+            transition: background-color 0.3s ease;
+        }
+        .sidebar ul li img {
+            height: 20px;
+            margin-right: 4px;
+        }
+        
+        main {
+            flex-grow: 3;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        .video {
+            margin: 10px;
+            width: calc(33% - 20px); 
+            background-color: white;
+            border-radius: 5px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease; 
+        }
+
+        .video img {
+            width: 100%;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px; 
+        }
+        .video:hover {
+            transform: scale(1.05);
+        } 
+        .video h3 {
+            margin: 10px; 
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 100%; /* Full width for smaller screens */
+            }
+
+            .video {
+                width: calc(50% - 20px); /* Two videos per row */
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column; /* Stack header items */
+                align-items: stretch;
+            }
+
+            .search-container {
+                margin: 10px 0; /* Space above and below search */
+            }
+
+            input[type="text"] {
+                width: 100%; /* Full width for smaller devices */
+                margin-bottom: 10px; /* Spacing below input */
+            }
+
+            .video {
+                width: calc(100% - 20px); /* One video per row */
+            }
+
+            .icon-container {
+                margin-right: 20px; /* Adjust margin */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"> 
+          <img src="https://logos-world.net/wp-content/uploads/2020/04/YouTube-Logo.png" width="90" alt="YouTube Logo">
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Search...">
+            <img src="https://img.icons8.com/ios-filled/50/000000/search.png" alt="Search Icon" class="icon">
+            <img src="https://static.vecteezy.com/system/resources/previews/000/573/047/original/sign-of-microphone-icon-vector.jpg" alt="Microphone Icon" class="icon" width="20"> 
+        </div>
+        <div class="icon-container">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.5VALnjuSw-NFuWTIvQTSZwHaHa&pid=Api&P=0&h=180" alt="Notification Icon" class="icon" width="50px">
+            <img src="https://img.icons8.com/ios-filled/50/000000/user.png" alt="Profile Icon" class="icon">
+        </div>
+    </header>
+
+    <div class="container">
+      <div class="sidebar">
+          <ul>
+             <li><img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="Home Icon">Home</li>
+             <li><img src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png" alt="Shorts Icon">Shorts</li>
+             <li><img src="https://cdn1.iconfinder.com/data/icons/youtube-23/31/Vector-4-512.png" alt="Subscription Icon">Subscriptions</li>
+             <li><img src="https://img.icons8.com/ios-filled/50/000000/library.png" alt="Library Icon">Library</li>
+          </ul>
+          <ul>
+             <li><img src="https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg" alt="Your Channel Icon" width="20">Your Channel</li>
+             <li><img src="https://tse2.mm.bing.net/th?id=OIP.QY4la-Kn5wpa81Y2gmXBHwHaGr&pid=Api&P=0&h=180" alt="History Icon">History</li>
+             <li><img src="https://cdn-icons-png.flaticon.com/512/109/109211.png" alt="Playlist Icon" width="20">Playlist</li>
+             <li><img src="https://tse2.mm.bing.net/th?id=OIP.uXjDahrCGQehJV4qODmiLAHaHa&pid=Api&P=0&h=180" width="20" alt="Liked Videos Icon">Liked Videos</li>
+             <li><img src="https://tse3.mm.bing.net/th?id=OIP.5ygY8BJZfWhxLhrBacbY7AHaHa&pid=Api&P=0&h=180" alt="Your Channel Icon" width="20">Watch Later</li>
+         </ul>
+         <ul>
+            <li><img src="https://static-00.iconduck.com/assets.00/settings-icon-1964x2048-8nigtrtt.png" alt="Settings Icon" width="20">Settings</li>
+            <li><img src="https://tse2.mm.bing.net/th?id=OIP.EEgOAw_uzP2CDflSAJYM_AHaHa&pid=Api&P=0&h=180" alt="Trending Icon">Trending</li>
+            <li><img src="https://icon-library.com/images/youtube-video-icon-png/youtube-video-icon-png-27.jpg" alt="Your Videos Icon" width="20">Your Videos</li>
+            <li><img src="https://www.pngrepo.com/download/310964/live.png" width="20" alt="Live Icon">Live</li>
+            <li><img src="https://icon-library.com/images/feedback-icon-png/feedback-icon-png-2.jpg" alt="Feedback Icon" width="20">Feedback</li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="video-container">
+            <div class="video">
+                <img src="https://cdn.123telugu.com/content/wp-content/uploads/2024/08/bigg-boss-8.jpg" alt="Video Thumbnail">
+                <h3>Bigg Boss Season 8 |# trending|<br>Day1 Promo </h3>
+                <p>Swahi Youtube Channel</p>
+                <p>157K Views • 27 minutes ago</p>
+            </div>
+            <div class="video">
+                <img src="https://hyperlaunch.co/wp-content/uploads/2024/01/Unleashing-Full-Stack-Coding-Project-Ideas-for-Beginners.jpg" alt="Video Thumbnail"> 
+                <h3>Learn Fullstack projects For Beginners<br>Improving Skills </h3>
+                <p>CodeChef Nepal</p>
+                <p>200K Views • 6 months ago</p>
+            </div>
+            <div class="video">
+                <img src="https://i.ytimg.com/vi/Nn3yBq96vgg/maxresdefault.jpg" alt="Video Thumbnail"> 
+                <h3>MY Home Tour # 200k+ Views</h3>
+                <p>PalleToori Ammayi</p>
+                <p>300K Views • 1 year ago</p>
+            </div>
+            <div class="video">
+                <img src="https://i.pinimg.com/originals/56/13/68/56136897bc66107b8b9ab58be5be701e.jpg" alt="Video Thumbnail"> 
+                <h3>Ridge Guard Curry|cooking channel|<br> Eating Food</h3>
+                <p>AMMA Cooking Channel</p>
+                <p>300K Views • 2 year ago</p>
+            </div>
+            <div class="video">
+                <img src="https://akamaividz2.zee5.com/image/upload/w_1082,h_609,c_scale,f_webp,q_auto:eco/resources/0-6-1161_946035643/list/1170x658withlogo581807177.jpg" alt="Video Thumbnail"> 
+                <h3>SA RE GA MA PA # The Next Singing Icon<br>#2024</h3>
+                <p>MAA TELUGU</p>
+                <p>300K Views • 3 year ago</p>
+            </div>
+            <div class="video">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.CPsNJFI0oHAy_CMx1dxGAgAAAA&pid=Api&P=0&h=180" alt="Video Thumbnail">      
+                <h3>3 Movie Telugu Songs |Kannuladha|<br># Favourite Song</h3>
+                <p>Movie Rules</p>
+                <p>300M Views • 1 year ago</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
